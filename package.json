@@ -1,0 +1,28 @@
+{
+  "name": "doctorappointment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "connect-mongo": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemon": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "passport-local": "*",
+    "postman-to-openapi": "^3.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "author": "Md Shariful Islam",
+  "license": "ISC"
+}

@@ -1,0 +1,645 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "doctorappointment",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "oauth2Auth": {
+        "type": "http",
+        "scheme": "oauth2"
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/ (home endpoint)",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/registeradmin": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/registeradmin",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "efg"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "efg"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "efg"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "efg@gmail.com"
+                  },
+                  "isAdmin": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/login (worker)",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "xyz"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "xyz"
+                  },
+                  "isAdmin": {
+                    "type": "boolean",
+                    "example": "false"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/bookappointment/admin": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/bookappointment/admin",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "abc"
+                  },
+                  "clientname": {
+                    "type": "string",
+                    "example": "Alex Kavela"
+                  },
+                  "age": {
+                    "type": "integer",
+                    "example": "20"
+                  },
+                  "mobile": {
+                    "type": "integer",
+                    "example": "0273893893"
+                  },
+                  "service": {
+                    "type": "string",
+                    "example": "treatment"
+                  },
+                  "appointmentdate": {
+                    "type": "string",
+                    "example": "2024-01-02"
+                  },
+                  "slotnumber": {
+                    "type": "integer",
+                    "example": "5"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMzUxNDQ1NH0.tfnNngoDFSH1SRTmm2lxqRsMruIs3ZFRVBSOajBmJRM"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/registerworker": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/registerworker",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "pqr"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "pqr"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "pqr"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "pqr@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/bookappointment": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/bookappointment (by worker)",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "xyz"
+                  },
+                  "clientname": {
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "age": {
+                    "type": "integer",
+                    "example": "30"
+                  },
+                  "mobile": {
+                    "type": "integer",
+                    "example": "048755858"
+                  },
+                  "service": {
+                    "type": "string",
+                    "example": "dental"
+                  },
+                  "appointmentdate": {
+                    "type": "string",
+                    "example": "2024-02-02"
+                  },
+                  "slotnumber": {
+                    "type": "integer",
+                    "example": "7"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTE1MTIxfQ.gjdlbb9X83xhjk0rCgR60slV8teKWC1towyKE-QHrxc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/logout",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTUwMTExfQ.VRKTL8PuS0Bb0G8bPvmKQifaPm6DrxIbGBiwLlZld-8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getadmins": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getadmins",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getadmin/abc": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getadmin/:username",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getworkers": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getworkers",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getworker/pqr": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getworker/:username",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getappointments": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getappointments (by workers)",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTE1MTIxfQ.gjdlbb9X83xhjk0rCgR60slV8teKWC1towyKE-QHrxc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getappointments/admin": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getappointments/admin",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BhYmMuY29tIiwidXNlcm5hbWUiOiJhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MTM0NTg3NDZ9.jEU4SVzTVw7JQmiIWMNvE_xkf2-VvcmcWGLybuJCSfc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getappointments/username/xyz": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getappointments/:category/:value (by worker)",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTUwMTExfQ.VRKTL8PuS0Bb0G8bPvmKQifaPm6DrxIbGBiwLlZld-8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/getappointments/admin/username/abc": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/getappointments/admin/:category/:value",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMzUxNDQ1NH0.tfnNngoDFSH1SRTmm2lxqRsMruIs3ZFRVBSOajBmJRM"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/updateappointment/6622b32d9744f7569b4249f1": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/updateappointment/:id (by worker)",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "clientname": {
+                    "type": "string",
+                    "example": "Bret Lee"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTE1MTIxfQ.gjdlbb9X83xhjk0rCgR60slV8teKWC1towyKE-QHrxc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/updateappointment/6622aa8d9744f7569b4249df": {
+      "put": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/updateappointment/:id (by admin)",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "clientname": {
+                    "type": "string",
+                    "example": "Kamal Khaled"
+                  },
+                  "age": {
+                    "type": "integer",
+                    "example": "33"
+                  },
+                  "mobile": {
+                    "type": "integer",
+                    "example": "088484"
+                  },
+                  "service": {
+                    "type": "string",
+                    "example": "Darmatology"
+                  },
+                  "appointmentdate": {
+                    "type": "string",
+                    "example": "2024-09-09"
+                  },
+                  "slotnumber": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "abc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMzUxNDQ1NH0.tfnNngoDFSH1SRTmm2lxqRsMruIs3ZFRVBSOajBmJRM"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/deleteappointment/6622296080e586677422d05e": {
+      "delete": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/deleteappointment/:id (by worker)",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh5ekB4eXouY29tIiwidXNlcm5hbWUiOiJ4eXoiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzEzNTE1MTIxfQ.gjdlbb9X83xhjk0rCgR60slV8teKWC1towyKE-QHrxc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/deleteappointment/6622f23e9744f7569b424a26": {
+      "delete": {
+        "tags": [
+          "default"
+        ],
+        "summary": "/deleteappointment/:id (by admin)",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiYyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMzUxNDQ1NH0.tfnNngoDFSH1SRTmm2lxqRsMruIs3ZFRVBSOajBmJRM"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
