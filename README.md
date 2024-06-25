@@ -231,12 +231,7 @@ Example of error handling in routes:
 
 ## Development Log
 
-Initially, I decided to create an e-commerce full-stack application and agreed with Pasi Manninen and started working on 
-that. But during the time or research I was also worried that I might not be able to complete it. In that case I will 
-fall back to default assignment, and weather client app for Application Framework and doctor’s appointment server for 
-ata Modeling and Backend Course (That was also agreed with Pasi). I worked for around 50 hours on this 
-https://github.com/SharifMasum/e-commerce-frontend. Then finally I gave up on e-commerce and decided to make doctor 
-appointment booking server..
+In this part, I am going to document work progress of development process.
 
 ### 15/03/2024: Research
 #### Task/Feature: Research and Study
